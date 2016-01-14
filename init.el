@@ -29,11 +29,11 @@
 (require 'setup-misc)
 (require 'setup-editing)
 
-;; load MATLAB stuff
-(require 'setup-matlab)
+;; load MATLAB stuff (not needed on heplx)
+;; (require 'setup-matlab)
 
-;; not really pretty to have this globally loaded but works for now
-(require 'setup-basf2-devel)
+;; not really pretty to have this globally loaded but works for now (not needed on heplx)
+;; (require 'setup-basf2-devel)
 
 ;; define some aliases
 (defalias 'list-buffers 'ibuffer) ; always use ibuffer
