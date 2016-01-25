@@ -29,6 +29,9 @@
 (require 'setup-misc)
 (require 'setup-editing)
 
+;; setup some stuff needed in a cmssw environment
+(require 'setup-cmssw)
+
 ;; load MATLAB stuff (not needed on heplx)
 ;; (require 'setup-matlab)
 

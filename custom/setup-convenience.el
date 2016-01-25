@@ -12,6 +12,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'helm)
 (require 'helm-config)
+(require 'helm-mode) ;; should fix helm-grep stuff
 
 ;; default "C-c c" is quite close to "C-c C-x", which quits emacs
 ;; changed to "C-c h". Has to be set globally since 'helm-command-prefix-key'

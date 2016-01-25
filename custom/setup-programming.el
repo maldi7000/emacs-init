@@ -20,6 +20,9 @@
   '(custom-set-variables
     '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
 
+;; disable pos-tip error messages, since there seems to be a problem with x-forwarding there
+;; also should work if emacs is run in no-window mode
+(setq flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list)
 
 ;; whitespace setup (trailing whitespaces and max chars per line)
 (require 'whitespace)
@@ -32,3 +35,5 @@
 (global-set-key (kbd "C-c f") 'hs-hide-block)
 (global-set-key (kbd "C-c s") 'hs-show-block)
 
+;; open every .h file in c++-mode (since I mostly deal with c++ this should be a reasonable default)
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
