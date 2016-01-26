@@ -73,3 +73,7 @@ point reaches the beginning or end of the buffer, stop there."
   (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET"))))
 (sp-local-pair 'c++-mode "/*" "*/" :post-handlers '((" | " "SPC")
                                                     ("* ||\N[i]" "RET")))
+
+
+;; (re-)define some keybindings for hideshow functions
+(global-set-key (kbd "C-c C-h") 'hs-toggle-hiding)
