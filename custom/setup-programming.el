@@ -18,11 +18,7 @@
 
 (eval-after-load 'flycheck
   '(custom-set-variables
-    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
-
-;; disable pos-tip error messages, since there seems to be a problem with x-forwarding there
-;; also should work if emacs is run in no-window mode
-(setq flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list)
+    '(flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)))
 
 ;; whitespace setup (trailing whitespaces and max chars per line)
 (require 'whitespace)
