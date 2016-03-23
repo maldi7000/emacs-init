@@ -43,6 +43,7 @@
 
 ;; start server (leads to crashes!!!)
 ;; (server-start)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -55,7 +56,7 @@
    (quote
     ("a041a61c0387c57bb65150f002862ebcfe41135a3e3425268de24200b82d6ec9" default)))
  '(fci-rule-color "#49483E")
- '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ ;; '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages)) ;; do not use pos-tip error messages here
  '(highlight-changes-colors ("#FD5FF0" "#AE81FF"))
  '(highlight-tail-colors
    (("#49483E" . 0)

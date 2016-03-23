@@ -13,9 +13,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(require 'flycheck-tip)
-(flycheck-tip-use-timer 'verbose)
+;; (require 'flycheck-tip)
+;; (flycheck-tip-use-timer 'verbose)
 
+;; set other display function instead of standard one
 (eval-after-load 'flycheck
   '(custom-set-variables
     '(flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)))

@@ -77,3 +77,17 @@ point reaches the beginning or end of the buffer, stop there."
 
 ;; (re-)define some keybindings for hideshow functions
 (global-set-key (kbd "C-c C-h") 'hs-toggle-hiding)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PACKAGE: highlight-symbol ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'highlight-symbol)
+(setq highlight-symbol-mode t) ;; enable highlight-symbol-mode globally
+(setq highlight-symbol-idle-delay 5)
+;; TODO: think of some better keybindings for this maybe
+(global-set-key (kbd "C-x w s") 'highlight-symbol-next)
+(global-unset-key (kbd "C-x w r"))
+(global-set-key (kbd "C-x w r") 'highlight-symbol-prev)
+(global-set-key (kbd "M-s h d") 'highlight-symbol-remove-all)
+
