@@ -43,7 +43,7 @@
 (define-minor-mode cmssw-devel-mode
   "minor mode for cmssw-development. Does not do really much besides defining some keys"
   :lighter " cmssw"
-  :keymap '(( [f3] . next-error)
+  :keymap '(( [f6] . next-error)
             ( [f5] . ede-compile-project )
             )
   )
@@ -58,6 +58,7 @@
   )
 
 (add-hook 'c++-mode-hook 'cmssw-devel-mode-turn-on)
+(add-hook 'nxml-mode-hook 'cmssw-devel-mode-turn-on) ;; turn on minor mode also in .xml files
 
 (add-hook 'c++-mode-hook
           (lambda () (setq flycheck-gcc-language-standard "c++11"
