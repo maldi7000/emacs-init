@@ -28,6 +28,7 @@
 (require 'setup-faces-ui)
 (require 'setup-misc)
 (require 'setup-editing)
+(require 'setup-org)
 
 ;; load MATLAB stuff
 (require 'setup-matlab)
