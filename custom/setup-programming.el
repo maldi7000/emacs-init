@@ -16,6 +16,14 @@
 ;; (require 'flycheck-tip)
 ;; (flycheck-tip-use-timer 'verbose)
 
+;; disable flycheck on python files since pylint version is < 1 on heplx which breaks flycheck on python files
+(defun disable-flycheck-mode()
+  "disable flycheck mode. Defined to have a function that can be hooked into certain modes where external tool don't work as desired."
+  (interactive)
+  (flycheck-mode -1))
+(add-hook 'python-mode-hook 'disable-flycheck-mode)
+
+
 ;; set other display function instead of standard one
 (eval-after-load 'flycheck
   '(custom-set-variables

@@ -15,6 +15,7 @@
 (defcustom cmssw-release-base (getenv "CMSSW_RELEASE_BASE") "The release base directory")
 (defcustom cmssw-base (getenv "CMSSW_BASE") "The base directory of the currently used cmssw")
 (defcustom cmssw-ede-file (concat cmssw-base "/src/.gitignore") "Default file needed for ede to hang project off of")
+(defcustom cmssw-rootsys (getenv "ROOTSYS") "The directory to the root source code used by the cmssw version in use")
 
 (defun setup-cmssw-ede-project ()
   "Setup the stuff cedet needs for cmssw"
@@ -28,9 +29,11 @@
      (list
       ;; CMSSW
       (concat cmssw-release-base "/src")
+      ;; ROOT
+      (concat cmssw-rootsys "include")
       )
      :spp-table '()
-     :compile-command "scram b -j8 src"
+     :compile-command "scramv1 b -j8 src"
      )
   (message (concat "setup ede-cpp-root-project for " cmssw-version)))
 
@@ -44,7 +47,8 @@
   "minor mode for cmssw-development. Does not do really much besides defining some keys"
   :lighter " cmssw"
   :keymap '(( [f6] . next-error)
-            ( [f5] . ede-compile-project )
+            ( [f7] . ede-compile-project ) ;; different keys for scram and make
+            ( [f5] . compile) ;; for things that are not compiled with scram
             )
   )
 
@@ -52,7 +56,7 @@
 (defun cmssw-devel-mode-turn-on ()
   "Setup all that is needed for working with cmssw without checking if the environment is set correctly"
   (interactive)
-  (if (and scram-arch cmssw-base cmssw-release-base cmssw-version)
+  (if (and scram-arch cmssw-base cmssw-release-base cmssw-version cmssw-rootsys)
       (cmssw-devel-mode 1)
     (message "cmssw environment not set leaving cmssw-devel-mode off"))
   )
@@ -60,9 +64,11 @@
 (add-hook 'c++-mode-hook 'cmssw-devel-mode-turn-on)
 (add-hook 'nxml-mode-hook 'cmssw-devel-mode-turn-on) ;; turn on minor mode also in .xml files
 
-(add-hook 'c++-mode-hook
-          (lambda () (setq flycheck-gcc-language-standard "c++11"
-                           flycheck-clang-language-standard "c++11")))
+;; TODO: make this check if this flag is available first.
+;; disabled for the moment
+;; (add-hook 'c++-mode-hook
+;;           (lambda () (setq flycheck-gcc-language-standard "c++11"
+;;                            flycheck-clang-language-standard "c++11")))
 
 (provide 'setup-cmssw)
 ;;; setup-cmssw.el ends here

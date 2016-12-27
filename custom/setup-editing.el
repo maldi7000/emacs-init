@@ -91,3 +91,8 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "C-x w r") 'highlight-symbol-prev)
 (global-set-key (kbd "M-s h d") 'highlight-symbol-remove-all)
 
+;; set indentation for shell scripts
+(setq sh-basic-offset 2
+      sh-indentation 2
+      sh-indent-for-case-label 0
+      sh-indent-for-case-alt '+)
